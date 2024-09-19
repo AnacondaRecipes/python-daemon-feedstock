@@ -6,11 +6,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/python-daemon/python-daemon-{{ version }}.tar.gz
-  sha256: 15c2c5e2cef563e0a5f98d542b77ba59337380b472975d2b2fd6b8c4d5cf46ca
+  sha256: 6c57452372f7eaff40934a1c03ad1826bf5e793558e87fef49131e6464b4dae5
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  script: {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation
   skip: True  # [win or (linux and s390x)]
 
 requirements:
