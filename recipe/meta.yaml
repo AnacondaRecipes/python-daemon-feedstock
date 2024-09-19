@@ -38,11 +38,15 @@ test:
 
 about:
   home: https://pagure.io/python-daemon/
+  description: |
+    This library implements the well-behaved daemon specification of
+    :pep:`3143`, “Standard daemon process library”.
   license: Apache-2.0
   license_family: APACHE
   license_file: LICENSE.ASF-2
   summary: Library to implement a well-behaved Unix daemon process.
   dev_url: https://pagure.io/python-daemon/
+  doc_url: https://pagure.io/python-daemon
 
 extra:
   recipe-maintainers:
