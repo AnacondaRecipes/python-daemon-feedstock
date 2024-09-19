@@ -1,3 +1,4 @@
+# https://pagure.io/python-daemon/issue/94
 {% set version = "3.0.1" %}
 
 package:
@@ -17,13 +18,14 @@ requirements:
   host:
     - python
     - pip
-    - setuptools
+    # Install won't work with setuptools >69.5.1
+    - setuptools 69.5.1
     - wheel
     - twine
   run:
     - python
     - lockfile >=0.10
-    - setuptools >=62.4.0
+    - setuptools
     - docutils
 
 test:
