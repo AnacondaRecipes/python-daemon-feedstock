@@ -23,7 +23,7 @@ requirements:
   run:
     - python
     - lockfile >=0.10
-    - setuptools
+    - setuptools >=62.4.0
     - docutils
 
 test:
