@@ -21,12 +21,14 @@ requirements:
     # Install won't work with setuptools >69.5.1
     - setuptools 69.5.1
     - wheel
-    - twine
+    - docutils
+    - packaging
   run:
     - python
     - lockfile >=0.10
     - setuptools
     - docutils
+    - packaging
 
 test:
   requires:
