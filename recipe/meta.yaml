@@ -65,3 +65,6 @@ extra:
     - lincrosenbach
     - kfasolin
     - ocefpaf
+  skip-lints:
+    - host_section_needs_exact_pinnings
+    - python_build_tool_in_run
