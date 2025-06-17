@@ -33,10 +33,17 @@ requirements:
     - docutils
 
 test:
+  source_files:
+    - test
   requires:
     - pip
+    - pytest
+    - testscenarios # [py<312]
+    - setuptools
   commands:
     - pip check
+    # we skip tests for py<312 because of missing testscenarios
+    - pytest test  # [py<312]
   imports:
     - daemon
 
