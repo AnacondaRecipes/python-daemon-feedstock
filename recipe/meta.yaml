@@ -40,6 +40,7 @@ test:
     - pytest
     - testscenarios # [py<312]
     - pbr
+    - testtools
   commands:
     # skip pip check because:
     # testscenarios 0.5.0 requires pbr, which is not installed.
@@ -47,7 +48,7 @@ test:
     #- pip check
     # we skip tests for py<312 because of missing testscenarios
     # we also skip test_setup because it fails with: E   ModuleNotFoundError: No module named 'setup'
-    - pytest -k 'not test_setup' test  # [py<312]
+    - pytest --ignore test/test_setup.py test  # [py<312]
   imports:
     - daemon
 
