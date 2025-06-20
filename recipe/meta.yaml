@@ -33,10 +33,12 @@ requirements:
 test:
   source_files:
     - test
+    - setup.py
   requires:
     - pip
     - pytest
     - testscenarios >=0.4 # [py<312]
+    - setuptools >=62.4.0
     - pbr
     - testtools
   commands:
@@ -50,7 +52,7 @@ test:
     # disabling test because on CI testtools seems to be broken and throws error:
     # E   ModuleNotFoundError: No module named 'extras'
     # tests otherwise pass locally
-    #- pytest --ignore test/test_setup.py test  # [py<312]
+    - pytest --ignore test/test_setup.py test  # [py<312]
   imports:
     - daemon
 
