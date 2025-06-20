@@ -20,8 +20,7 @@ requirements:
   host:
     - python
     - pip
-    # Install won't work with setuptools >69.5.1
-    - setuptools <=69.5.1
+    - setuptools >=62.4.0
     - wheel
     - docutils
     - changelog-chug
