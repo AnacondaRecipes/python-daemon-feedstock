@@ -28,7 +28,6 @@ requirements:
   run:
     - python
     - lockfile >=0.10
-    - setuptools
     # docutils doesn't seem necessary here, but pip check won't pass without it.
     - docutils
 
