@@ -75,3 +75,4 @@ extra:
   skip-lints:
     - host_section_needs_exact_pinnings
     - python_build_tool_in_run
+    - missing_pip_check
