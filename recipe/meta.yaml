@@ -52,6 +52,7 @@ test:
     # disabling test because on CI testtools seems to be broken and throws error:
     # E   ModuleNotFoundError: No module named 'extras'
     # tests otherwise pass locally
+    - {{ PYTHON }} -m setup test --quiet
     - pytest --ignore test/test_setup.py test  # [py<312]
   imports:
     - daemon
