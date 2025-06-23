@@ -31,29 +31,26 @@ requirements:
     - docutils
 
 test:
-  source_files:
-    - test
-    - setup.py
-  requires:
-    - pip
-    - pytest
-    - testscenarios >=0.4 # [py<312]
-    - setuptools >=62.4.0
-    - pbr
-    - testtools
-  commands:
+  # source_files:
+    # - test
+    # - setup.py
+  # requires:
+    # - pip
+    # - pytest
+    # - testscenarios >=0.4 # [py<312]
+    # - setuptools >=62.4.0
+    # - pbr
+    # - testtools
+  # commands:
     # skip pip check because:
     # testscenarios 0.5.0 requires pbr, which is not installed.
     # testscenarios 0.5.0 requires testtools, which is not installed.
     #- pip check
-    # we skip tests for py<312 because of missing testscenarios
-    # we also skip test_setup because it fails with: E   ModuleNotFoundError: No module named 'setup'
     ### WARNING ###
-    # disabling test because on CI testtools seems to be broken and throws error:
-    # E   ModuleNotFoundError: No module named 'extras'
+    # disabling test because testtools 2.3.0 requires recursively extras, fixtures, python-mimeparse,
+    # six, traceback2, and unittest2
     # tests otherwise pass locally
-    - {{ PYTHON }} -m setup test --quiet
-    - pytest --ignore test/test_setup.py test  # [py<312]
+    # - pytest --ignore test/test_setup.py test  # [py<312]
   imports:
     - daemon
 
