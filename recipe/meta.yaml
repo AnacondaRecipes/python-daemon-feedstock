@@ -14,7 +14,8 @@ source:
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation
-  skip: True  # [py<37]
+  # this module is incompatible on Windows because it uses uid and gid
+  skip: True  # [py<37 or win]
 
 requirements:
   host:
