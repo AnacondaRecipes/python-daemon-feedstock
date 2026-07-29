@@ -1,33 +1,34 @@
-# https://pagure.io/python-daemon/issue/94
 {% set name = "python-daemon" %}
-{% set alt_name = name.replace("-", "_") %}
-{% set version = "3.1.2" %}
+{% set version = "2.1.2" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ alt_name }}-{{ version }}.tar.gz
-  sha256: f7b04335adc473de877f5117e26d5f1142f4c9f7cd765408f0877757be5afbf4
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 261c859be5c12ae7d4286dc6951e87e9e1a70a882a8b41fd926efc1ec4214f73
 
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation
   # this module is incompatible on Windows because it uses uid and gid
-  skip: True  # [py<37 or win]
+  skip: true  # [py<37]
 
 requirements:
   host:
     - python
     - pip
-    - setuptools >=62.4.0
+    # pkg_resources was removed in setuptools 82.0.0 pin below that
+    # to keep python-daemon's `import pkg_resources` working.
+    - setuptools <82
     - wheel
     - docutils
-    - changelog-chug
+    - lockfile >=0.10
   run:
     - python
     - lockfile >=0.10
+    - setuptools <82
     # docutils doesn't seem necessary here, but pip check won't pass without it.
     - docutils
 
@@ -54,6 +55,10 @@ test:
     # - pytest --ignore test/test_setup.py test  # [py<312]
   imports:
     - daemon
+  requires:
+    - pip
+  commands:
+    - pip check
 
 about:
   home: https://pagure.io/python-daemon/
